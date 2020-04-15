@@ -1,0 +1,92 @@
+openapi: 3.0.0
+info:
+  title: Products API
+  description: This is a product API
+  version: "1.0.0"
+servers:
+- url: https://api.product.com/v1
+tags:
+- name: product
+  description: Products information
+paths:
+  /product/productById/{id}:
+    get:
+      tags:
+      - products
+      summary: Get product by id
+      description: Get a particular product by it's id
+      operationId: getById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 1
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Product found
+          content:
+            application/json:
+              schema:
+                type: object
+                x-content-type: application/json
+        "404":
+          description: Product not found
+      x-swagger-router-controller: Products
+  /product/productByName/{name}:
+    get:
+      tags:
+      - products
+      summary: Get product by name
+      description: Get a particular product by it's name
+      operationId: getByName
+      parameters:
+      - name: name
+        in: path
+        required: true
+        example: "abc"
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Product found
+          content:
+            application/json:
+              schema:
+                type: object
+                x-content-type: application/json
+        "404":
+          description: Product not found
+      x-swagger-router-controller: Products
+  /product/productByIds/:
+    post:
+      tags:
+      - products
+      summary: Get products by list of product IDs
+      description: Accepts a list of product IDs and returns their details. Also accept
+        a list of fields to be returned in the response.
+      operationId: getByIds
+      requestBody:
+        description: List of product ids and list of fields to be returned in the response.
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        "200":
+          description: List of proucts retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                x-content-type: application/json
+        "404":
+          description: Product not found
+      x-swagger-router-controller: Products
+components: {}

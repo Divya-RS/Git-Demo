@@ -1,0 +1,35 @@
+{
+  "name": "products-api",
+  "version": "1.0.0",
+  "description": "This is a product API",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix",
+    "prestart": "npm install",
+    "start": "node index.js",
+    "test": "nyc mocha 'src/tests/**/*.js'",
+    "test:coverage": "nyc sls invoke test -p src/tests -e http://localhost:8080"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "oas3-tools": "^2.0.2",
+    "snyk": "^1.305.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "dredd": "^13.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.1"
+  }
+}
