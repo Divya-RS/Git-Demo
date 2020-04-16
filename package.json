@@ -8,8 +8,7 @@
     "lint-fix": "eslint ./ --fix",
     "prestart": "npm install",
     "start": "node index.js",
-    "test": "nyc mocha 'src/tests/**/*.js'",
-    "test:coverage": "nyc sls invoke test -p src/tests -e http://localhost:8080"
+    "test": "nyc mocha 'src/tests/**/*.js'"
   },
   "keywords": [
     "swagger"

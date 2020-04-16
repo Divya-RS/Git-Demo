@@ -3,8 +3,13 @@ info:
   title: Products API
   description: This is a product API
   version: "1.0.0"
-servers:
-- url: https://api.product.com/v1
+servers: 
+  - url: https://api.product.com/v1
+    description: server configuration for testing
+  - url: https://api-dev.product.com/v1
+    description: server configuration for another env
+  - url: http://localhost:8080/v1
+    description: server configuration for local host
 tags:
 - name: product
   description: Products information
@@ -47,7 +52,7 @@ paths:
       - name: name
         in: path
         required: true
-        example: "abc"
+        example: "Oba"
         style: simple
         explode: false
         schema:

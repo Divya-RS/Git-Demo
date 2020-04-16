@@ -1,13 +1,25 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
 const ProductService = require('../../service/ProductsService');
 
-describe('Product service test ', async function() {
-    it('Should retrieve the corresponding product when id is given', async function(){
-        const output = await ProductService.getById(1);
-        expect(output.unitPrice).to.equal('$32.12');
-    })
-    it('Should retrieve the corresponding product when name is given', async function(){
-        const output = await ProductService.getByName('Linkbuzz');
-        expect(output.unitPrice).to.equal('$32.12');
-    })
-})
+describe('Product service test ', async () => {
+  it('Should retrieve the corresponding product when id is given', async () => {
+    const output = await ProductService.getById(1);
+    expect(output.unitPrice).to.equal('$32.12');
+  });
+  // it('Should retrieve the corresponding product when id is given', async () => {
+  //     expect(() => ProductService.getById(0)).to.throw
+  //         (new Error('Product not found'));
+  // });
+  it('Should retrieve the corresponding product when name is given', async () => {
+    const output = await ProductService.getByName('Linkbuzz');
+    expect(output.unitPrice).to.equal('$32.12');
+  });
+  it('Should retrieve the corresponding products and requested attributes based on input', async () => {
+    const productAttributes = {
+      productIds: [1, 2, 10],
+      productAttributes: ['id', 'name'],
+    };
+    const output = await ProductService.getByIds(productAttributes);
+    expect(output.length).to.equal(3);
+  });
+});

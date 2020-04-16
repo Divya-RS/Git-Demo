@@ -7,7 +7,7 @@ exports.respondWithCode = function (code, payload) {
   return new ResponsePayload(code, payload);
 };
 
-var writeJson = exports.writeJson = function (response, arg1, arg2) {
+const writeJson = exports.writeJson = function (response, arg1, arg2) {
   let code;
   let payload;
 

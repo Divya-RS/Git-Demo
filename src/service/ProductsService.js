@@ -22,18 +22,17 @@ exports.getById = function (id) {
 
 /**
  * Get products by list of product IDs
- * Accepts a list of product IDs and returns their details. Also accept a list of fields to 
+ * Accepts a list of product IDs and returns their details. Also accept a list of fields to
  * be returned in the response.
- * 
+ *
 */
 
 exports.getByIds = function (prodAttributes) {
   return new Promise(((resolve, reject) => {
     const { productIds } = prodAttributes;
     const { productAttributes } = prodAttributes;
-    const matchedProducts = productsMockData.filter(product => { return productIds.includes(product.id) }
-    );
-    const productResponse = matchedProducts.reduce(function (result, product) {
+    const matchedProducts = productsMockData.filter((product) => productIds.includes(product.id));
+    const productResponse = matchedProducts.reduce((result, product) => {
       const final = {};
       productAttributes.map((productAttribute) => {
         final[productAttribute] = product[productAttribute];
@@ -44,7 +43,7 @@ exports.getByIds = function (prodAttributes) {
     if (productResponse.length > 0) {
       resolve(productResponse);
     } else {
-      reject('Product not found');
+      reject(new Error('Product not found'), 404);
     }
   }));
 };
@@ -63,6 +62,6 @@ exports.getByName = function (name) {
     if (item) {
       resolve(item);
     }
-    reject('error');
+    reject(new Error('Product not found'), 404);
   }));
 };
