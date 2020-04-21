@@ -34,7 +34,8 @@ exports.getByIds = function (prodAttributes) {
     const matchedProducts = productsMockData.filter((product) => productIds.includes(product.id));
     const productResponse = matchedProducts.reduce((result, product) => {
       const final = {};
-      productAttributes.map((productAttribute) => {
+      // using forEach instead of map to avoid lint issues
+      productAttributes.forEach((productAttribute) => {
         final[productAttribute] = product[productAttribute];
       });
       result.push(final);

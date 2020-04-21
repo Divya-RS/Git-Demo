@@ -7,7 +7,7 @@ exports.respondWithCode = function (code, payload) {
   return new ResponsePayload(code, payload);
 };
 
-const writeJson = exports.writeJson = function (response, arg1, arg2) {
+const writeJson = function (response, arg1, arg2) {
   let code;
   let payload;
 
@@ -37,3 +37,5 @@ const writeJson = exports.writeJson = function (response, arg1, arg2) {
   response.writeHead(code, { 'Content-Type': 'application/json' });
   response.end(payload);
 };
+
+module.exports.writeJson = writeJson;

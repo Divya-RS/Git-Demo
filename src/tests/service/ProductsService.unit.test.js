@@ -9,16 +9,16 @@ describe('Product service test ', async () => {
   it('Should throw error when given id is not present', async () => {
     ProductService.getById(0).catch((err) => {
       expect(err.message).to.equal('Product not found');
-    })
+    });
   });
   it('Should retrieve the corresponding product when name is given', async () => {
     const output = await ProductService.getByName('Linkbuzz');
     expect(output.unitPrice).to.equal('$32.12');
   });
   it('Should throw error when given name is not present', async () => {
-    ProductService.getByName("abc").catch((err) => {
+    ProductService.getByName('abc').catch((err) => {
       expect(err.message).to.equal('Product not found');
-    })
+    });
   });
   it('Should retrieve the corresponding products and requested attributes based on input', async () => {
     const productAttributes = {
@@ -35,6 +35,6 @@ describe('Product service test ', async () => {
     };
     ProductService.getByIds(productAttributes).catch((err) => {
       expect(err.message).to.equal('Product not found');
-    })
+    });
   });
 });
