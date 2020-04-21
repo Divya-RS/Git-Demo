@@ -22,16 +22,16 @@ describe('Product service test ', async () => {
   });
   it('Should retrieve the corresponding products and requested attributes based on input', async () => {
     const productAttributes = {
-      productIds: [1, 2, 10],
-      productAttributes: ['id', 'name'],
+      "productIds": [1, 2, 10],
+      "productAttributes": ['id', 'name'],
     };
     const output = await ProductService.getByIds(productAttributes);
     expect(output.length).to.equal(3);
   });
   it('Should throw error when given id is not present', async () => {
     const productAttributes = {
-      productIds: [11],
-      productAttributes: ['id', 'name'],
+      "productIds": [11],
+      "productAttributes": ['id', 'name'],
     };
     ProductService.getByIds(productAttributes).catch((err) => {
       expect(err.message).to.equal('Product not found');

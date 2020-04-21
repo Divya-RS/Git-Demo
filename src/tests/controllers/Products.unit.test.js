@@ -24,16 +24,16 @@ describe('Product controller test ', async () => {
   });
   it('Should retrieve the corresponding products and requested attributes based on input', async () => {
     const productAttributes = {
-      productIds: [1, 2, 10],
-      productAttributes: ['id', 'name'],
+      "productIds": [1, 2, 10],
+      "productAttributes": ['id', 'name'],
     };
     const output = await Products.getByIds({}, stubServerResponse, null, productAttributes);
     expect(output).to.equals(undefined);
   });
   it('Should return error message when the corresponding product is not present', async () => {
     const productAttributes = {
-      productIds: [11],
-      productAttributes: ['id', 'name'],
+      "productIds": [11],
+      "productAttributes": ['id', 'name'],
     };
     const output = await Products.getByIds({}, stubServerResponse, null, productAttributes);
     expect(output).to.equals(undefined);
