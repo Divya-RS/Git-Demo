@@ -1,0 +1,81 @@
+[{
+  "id": 1,
+  "name": "KGF",
+  "language": "Kannada",
+  "type": "2D",
+  "rating": 5,
+  "image": "assets/images/kgf.jpg",
+  "location": ["Bengaluru","Chennai"]
+}, {
+  "id": 2,
+  "name": "Baaghi-3",
+  "language": "Hindi",
+  "type": "3D",
+  "rating": 4,
+  "image": "assets/images/baaghi3.jpg",
+  "location": ["Chennai","Chandigarh"]
+}, {
+  "id": 3,
+  "name": "Chhapak",
+  "language": "Kannada",
+  "type": "2D",
+  "rating": 4,
+  "image": "assets/images/chhapak.jpg",
+  "location": ["Chandigarh"]
+}, {
+  "id": 4,
+  "name": "Onward",
+  "language": "English",
+  "type": "3D",
+  "rating": 4,
+  "image": "assets/images/onward.jpg",
+  "location": ["Bengaluru","Chennai","Chandigarh"]
+}, {
+  "id": 5,
+  "name": "Darbar",
+  "language": "Tamil",
+  "type": "2D",
+  "rating": 5,
+  "image": "assets/images/darbar.jpg",
+  "location": ["Chennai","Chandigarh"]
+}, {
+  "id": 6,
+  "name": "Dia",
+  "language": "Tamil",
+  "type": "2D",
+  "rating": 2,
+  "image": "assets/images/dia.jpg",
+  "location": ["Chennai"]
+}, {
+  "id": 7,
+  "name": "Dolittle",
+  "language": "English",
+  "type": "3D",
+  "rating":3,
+  "image": "assets/images/dolittle.jpg",
+  "location": ["Chennai","Chandigarh"]
+}, {
+  "id": 8,
+  "name": "Nan Sirithal",
+  "language": "Tamil",
+  "type": "2D",
+  "rating": 4,
+  "image": "assets/images/nansirithal.jpg",
+  "location": ["Bengaluru","Chennai"]
+}, {
+  "id": 9,
+  "name": "No Time",
+  "language": "English",
+  "type": "2D",
+  "rating": 2,
+  "image": "assets/images/notime.jpg",
+  "location": ["Bengaluru","Chandigarh"]
+}, {
+  "id": 10,
+  "name": "Street Dance",
+  "language": "Hindi",
+  "type": "3D",
+  "rating": 3,
+  "image": "assets/images/streetdance.jpg",
+  "location": ["Bengaluru","Chennai","Chandigarh"]
+}]

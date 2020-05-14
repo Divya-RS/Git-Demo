@@ -1,0 +1,51 @@
+[{
+  "date": "31/03/2020",
+  "time": "6:10 AM",
+  "price": "150",
+  "theater": "Neelam Cinemas"
+}, {
+  "date": "26/01/2020",
+  "time": "9:33 PM",
+  "price": "160",
+  "theater": "Neelam Cinemas"
+}, {
+  "date": "10/09/2019",
+  "time": "11:36 AM",
+  "price": "150",
+  "theater": "Wave Cinemas"
+}, {
+  "date": "21/09/2019",
+  "time": "8:09 PM",
+  "price": "200",
+  "theater": "Neelam Cinemas"
+}, {
+  "date": "30/03/2020",
+  "time": "7:09 PM",
+  "price": "350",
+  "theater": "Wave Cinemas"
+}, {
+  "date": "28/12/2019",
+  "time": "10:13 PM",
+  "price": "150",
+  "theater": "Wave Cinemas"
+}, {
+  "date": "12/02/2020",
+  "time": "11:38 PM",
+  "price": "150",
+  "theater": "Neelam Cinemas"
+}, {
+  "date": "17/06/2019",
+  "time": "4:03 AM",
+  "price": "160",
+  "theater": "Wave Cinemas"
+}, {
+  "date": "05/07/2019",
+  "time": "10:42 PM",
+  "price": "220",
+  "theater": "Wave Cinemas"
+}, {
+  "date": "20/05/2019",
+  "time": "9:23 PM",
+  "price": "310",
+  "theater": "Wave Cinemas"
+}]

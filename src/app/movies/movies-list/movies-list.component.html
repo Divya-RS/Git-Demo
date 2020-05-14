@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="col-xs-7 col-xs-offset-3 col-sm-12 col-sm-offset-1">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Movies now in Theater</div>
+            <div class="panel-body">
+                <div>
+                    <span class="txtstrong pull-left" style="margin-top: 6px">Sort By</span>
+                    <div class="pull-left col-md-4">
+                        <select class="form-control searchboxpos" [(ngModel)]="sortOption">
+                            <option value="popularity">Popularity</option>
+                            <option value="namelh">Name - A-Z</option>
+                            <option value="namehl">Name - Z-A</option>
+                        </select>
+                    </div>
+                    <div class="input-group pull-right col-md-4 searchboxpos">
+                        <input type="text" class="form-control" [(ngModel)]="movieName" placeholder="Search your movie name" id="search">
+                        <div class="input-group-btn">
+                            <span class="btn btn-default">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="card-group">
+                    <div class="mb-6" *ngFor="let movie of moviesList | movieFilter: movieName | orderByFilter: sortOption">
+                        <div class="card col-sm-3 text-center parent">
+                            <img class="card-img-top movie-img" [src]="movie.image" [alt]="movie.name">
+                            <div class="card-body">
+                                <p appHighlight class="card-heading">{{movie.name}}</p>
+                                <p class="card-text">{{movie.language}}</p>
+                                <p class="card-text">{{movie.type}}</p>
+                                <app-rating style="color: gold" [rate]='movie.rating'></app-rating>
+                                <div *ngIf="movie.rating >=3" class="ribbon ribbon-bottom-right">
+                                    <span>Recommended</span>
+                                </div>
+                                <div>
+                                    <button (click)="bookTicket(movie.name)" class="btn btn-primary">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

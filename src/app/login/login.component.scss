@@ -1,0 +1,39 @@
+.padding {
+    padding-bottom:0px;
+    margin-bottom:0px;
+}
+
+.link-underline{
+   color:#337ab7;
+    text-decoration: underline;
+}
+
+.error{
+    color: red;
+    position:relative;
+    left:50px;
+}
+
+label {
+    display: inline;
+    font-weight: bold;
+    color: black;
+    text-align: left !important;
+    
+    input {
+        display: inline;
+        width: 50% !important;
+        margin-bottom: 20px;
+        padding: 1em;
+    }
+
+    .error {
+        margin-top: -20px;
+        color: red;
+        padding: .5em;
+        display: inline-block;
+        font-size: .9em;
+        margin-bottom: 20px;
+        position:relative;
+    }
+}

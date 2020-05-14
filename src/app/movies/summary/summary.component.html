@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="col-xs-7 col-xs-offset-3 col-md-4">
+        <div class='panel panel-primary'>
+            <div class='panel-heading'>Booking Summary</div>
+            <div class='panel-body'>
+                <table class="table table-striped tablebgcolor">
+                    <tr>
+                        <td align="center" colspan="2">You have selected the following details</td>
+                    </tr>
+
+                    <br>
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <span class="col-sm-6">Theater Name</span>
+                                <span>: {{movieSelected.theater}}</span>
+                            </div>
+                            <div>
+                                <span class="col-sm-6">Location</span>
+                                <span>: {{movieSelected.location}}</span>
+                            </div>
+                            <div>
+                                <span class="col-sm-6">Seats Booked</span>
+                                <span>: {{movieSelected.seatsBooked}}</span>
+                            </div>
+                            <div>
+                                <span class="col-sm-6">Movie Name</span>
+                                <span>: {{movieSelected.name}}</span>
+                            </div>
+                            <div>
+                                <span class="col-sm-6">Price</span>
+                                <span>: {{movieSelected.price | currency: 'INR':'symbol':'':'en-IN'}}</span>
+                            </div>
+                            <div>
+                                <span class="col-sm-6">Show Date</span>
+                                <span>: {{movieSelected.showDate}}</span>
+                            </div>
+                            <div>
+                                <span class="col-sm-6">Show Timing</span>
+                                <span>: {{movieSelected.showTime}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <td>
+                            <button (click)="modifyBooking()" class="btn btn-primary">Modify Booking</button>
+                        </td>
+                        <td>
+                            <button (click)="ConfirmBooking()" class="btn btn-primary">Confirm Booking</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

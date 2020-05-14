@@ -1,0 +1,27 @@
+<div class="container">
+            <div class="col-xs-7 col-xs-offset-3 col-md-4">
+                <div class='panel panel-primary'>
+                    <div class='panel-heading'>Checkout Details</div>
+                    <div class='panel-body'>
+                        <table class="table table-striped tablebgcolor">
+                            <tr>
+                                <td>Total amount to be paid {{totalPrice  | currency: 'INR':'symbol':'':'en-IN'}}</td>
+                            </tr>
+                            <br><br>
+                            <tr>
+                                <td>
+                                   Thanks for booking movie ticket online. Please pay and
+                                   collect your ticket at BOX OFFICE COUNTER!!!
+                                </td>
+                            </tr>
+                            <br><br>
+                            <tr>
+                                <td >
+                                    <a (click)="bookMore()">Book more tickets</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>

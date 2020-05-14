@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+// .txtcolor{
+//     color: #ff0080;
+// }
+.txtstrong{
+    color: black;
+    font-weight: bold;
+}
+.container{
+	position: absolute; 
+	top: 90px;
+    width:50%;
+    align-content: center;
+}
+.login-btn {
+    background:#337ab7;
+    border: none;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    padding: .6em;
+    cursor: pointer;
+    width: 70px;
+    margin-left: 8em;
+}
+

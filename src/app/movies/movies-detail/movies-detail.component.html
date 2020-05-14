@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-7 col-xs-offset-3">
+            <div class='col-md-6'>
+                <div class='panel panel-primary'>
+                    <div class='panel-heading'>Movie Details</div>
+                    <div class='panel-body'>
+                        <table class="table table-striped tablebgcolor" *ngIf="movieBooked">
+                            <tr>
+                                <td align="center">
+                                    <img class="movie-img" [src]='movieBooked[0].image' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <span class="col-sm-6 txtstrong">Movie Name</span>
+                                        <span>:{{movieBooked[0].name}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="col-sm-6 txtstrong">Language</span>
+                                        <span>:{{movieBooked[0].language}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="col-sm-6 txtstrong">Format</span>
+                                        <span>:{{movieBooked[0].type}}</span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <app-rating style="color: gold" [rate]='movieBooked[0].rating'></app-rating>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class='panel-footer'>
+                        <a class='btn btn-default backbtnpos' (click)='onBack()'>
+                            <i class='glyphicon glyphicon-chevron-left'></i> Back
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-md-6'>
+                <div class='panel panel-primary'>
+                    <div class='panel-heading'>Booking Details</div>
+                    <div class='panel-body'>
+                        <table class="table tablebgcolor">
+                            <tr>
+                                <td>
+                                    <div>Select your theater</div>
+                                </td>
+                            </tr>
+                            <div *ngFor="let theater of currentTheaters[0].theaters">
+                                <tr>
+                                    <a style="color:blue;cursor:pointer;text-decoration:underline" (click)="showDetails($event.target.innerText)">
+                                        {{theater}}
+                                    </a>
+                                </tr>
+                            </div>
+                            <br>
+                            <div *ngIf="selected">
+                                <tr>
+                                    <div>
+                                        <span class="txtstrong">Theater selected:</span>{{selectedTheater}}</div>
+
+                                </tr>
+                                <tr>
+                                    <div class="txtstrong">Date: </div>
+                                </tr>
+                                <tr>
+
+                                    <div>
+                                        <select class="form-control" [ngModel]="dateSelected" (change)="getDate($event.target.value)">
+                                            <option *ngFor="let option of selectedTheaterDetails" [value]="option.date">
+                                                {{option.date}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="txtstrong">Show Timing: </div>
+                                </tr>
+                                <tr>
+                                    <div>
+                                        <select class="form-control" [ngModel]="timeSelected" (change)="getTime($event.target.value)">
+                                            <option *ngFor="let option of selectedTheaterDetails" [value]="option.time">
+                                                {{option.time}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="txtstrong">Number of Seats(2-10):</div>
+                                </tr>
+                                <tr>
+                                    <div>
+                                        <input type="number" min="2" max="10" class="form-control" [ngModel]="seats">
+                                    </div>
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                    <div style="margin-top: 7px;">
+                                        <a class='btn btn-primary' (click)='proceed()'>Proceed</a>
+                                    </div>
+                                </tr>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
