@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieBookingService {
-  movies: any = [];
+  private source = new BehaviorSubject([]);
+  movies = this.source.asObservable();
   selectedMovie: any;
   selectedDate: any;
   selectedTime: any;
@@ -23,10 +25,16 @@ export class MovieBookingService {
   getMovies() {
     return this.http.get('assets/jsons/Movies.json');
   }
-  updateMovies(location) {
-    this.movies = this.movies.filter(movie => movie.location.includes(location));
-    console.log('...movies updated in service class', this.movies);
-  }
+  // updateMovies(location) {
+  //   this.movies = this.movies.filter(movie => movie.location.includes(location));
+  //   console.log('...movies updated in service class', this.movies);
+  // }
+  updateMovies(FilteredMovies: any) {
+    // FilteredMovies.subscribe(movies => console.log("hi",movies));
+     console.log('Filtered Movies', FilteredMovies);
+     // this.movies = this.movies.filter(movie => movie.location.includes(location));
+     this.source.next(FilteredMovies);
+   }
   getMovieDetails() {
     switch (this.crtLocation){
       case 'Bengaluru':

@@ -12,11 +12,10 @@ export class SummaryComponent implements OnInit {
   movieSelected: any;
 
   constructor(private router: Router, private bookingService: MovieBookingService) {
-    const location = sessionStorage.getItem('location');
     this.movieSelected = {
       name: this.bookingService.selectedMovie[0].name,
       theater: this.bookingService.selectedTheater,
-      location,
+      location: this.bookingService.crtLocation,
       seatsBooked: this.bookingService.seats,
       price: this.bookingService.totalPrice,
       showDate: this.bookingService.selectedDate,

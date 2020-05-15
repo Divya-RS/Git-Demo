@@ -17,14 +17,16 @@ export class MoviesListComponent implements OnInit {
     sessionStorage.setItem('loginTitle', 'Logout');
     document.getElementById('welcome').style.display = 'block';
     document.getElementById('welcome').style.color = '#ff0080';
+    this.bookingService.getMovies().subscribe(movies => this.moviesList = movies);
   }
   ngOnInit(): void {
-    this.bookingService.getMovies().subscribe({
-      next: res => {
-        this.bookingService.movies = res;
-        this.moviesList = this.bookingService.movies.filter(movie => movie.location.includes(this.bookingService.crtLocation));
-      }
-    });
+    // this.bookingService.getMovies().subscribe({
+    //   next: res => {
+    //     this.bookingService.movies = res;
+    //     this.moviesList = this.bookingService.movies.filter(movie => movie.location.includes(this.bookingService.crtLocation));
+    //   }
+    // });
+    this.bookingService.movies.subscribe(movies => this.moviesList = movies);
   }
   bookTicket(name: string) {
     this.router.navigate(['/movies/', name, this.bookingService.crtLocation]);

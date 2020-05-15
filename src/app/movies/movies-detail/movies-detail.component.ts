@@ -23,15 +23,15 @@ export class MoviesDetailComponent implements OnInit {
     {location: 'Chandigarh', theaters : ['Neelam Cinemas', 'Wave Cinemas']},
   ];
   currentTheaters: any;
-  location: any;
   constructor(private route: ActivatedRoute,
               private router: Router, private bookingService: MovieBookingService) {
       this.name = this.route.snapshot.paramMap.get('name');
-      console.log("...this.bookingService.movies", this.bookingService.movies);
-      this.movieBooked = this.bookingService.movies.filter(movie => movie.name === this.name);
+      console.log('...this.bookingService.movies', this.bookingService.movies);
+      this.bookingService.movies.subscribe(movies => this.movieBooked = movies);
+     // this.movieBooked = this.bookingService.movies;
+      this.movieBooked = this.movieBooked.filter(movie => movie.name === this.name);
       this.bookingService.selectedMovie = this.movieBooked;
-      this.location = sessionStorage.getItem('location');
-      this.currentTheaters = this.theaters.filter(theaters => theaters.location === this.location);
+      this.currentTheaters = this.theaters.filter(theaters => theaters.location === this.bookingService.crtLocation);
       console.log('...this.currentTheaters', this.currentTheaters);
   }
 
@@ -65,7 +65,7 @@ export class MoviesDetailComponent implements OnInit {
     console.log('....price in string', this.selectedTheaterDetails[0].price);
     console.log('....price in number', Number(this.selectedTheaterDetails[0].price));
     this.bookingService.totalPrice = Number(this.selectedTheaterDetails[0].price) * Number(this.seats);
-    this.bookingService.selectedLocation = this.location;
+    this.bookingService.selectedLocation = this.bookingService.crtLocation;
     this.router.navigate(['/bookingsummary']);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MovieBookingService } from './movie-booking.service';
 
@@ -7,15 +7,19 @@ import { MovieBookingService } from './movie-booking.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Movie Ticket Booking';
   loginTitle = 'Login';
   username = sessionStorage.getItem('username');
-  location = 'Bengaluru';
+  location = 'Select a location';
+  movies: any;
   constructor(private router: Router, private bookingService: MovieBookingService) {
-    sessionStorage.clear();
     this.bookingService.crtLocation = 'Bengaluru';
-    sessionStorage.setItem('location', this.bookingService.crtLocation);
+  }
+
+  ngOnInit() {
+    this.bookingService.getMovies().subscribe
+      (movies => this.movies = movies);
   }
 
   login() {
@@ -27,8 +31,17 @@ export class AppComponent {
     }
     this.router.navigate(['/login']);
   }
-  onChange(location){
-    sessionStorage.setItem('location', location);
-    this.bookingService.crtLocation =  location;
+  onChange(location) {
+    this.bookingService.crtLocation = location;
+    console.log('location', location);
+    // Filtered movies
+    this.bookingService.getMovies().subscribe({
+      next: res => {
+        const movies = res;
+        this.movies = movies.filter(movie => movie.location.includes(location));
+        console.log('Filtered', this.movies);
+        this.bookingService.updateMovies(this.movies);
+      }
+    });
   }
 }
